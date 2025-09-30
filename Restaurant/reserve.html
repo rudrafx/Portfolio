@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marée Bleu - Seamless Reservations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f3ed;
+            color: #052c42;
+        }
+
+        .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .card-hover {
+            transition: all 0.4s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+
+<body class="text-gray-900">
+    <header class="bg-[#052c42] text-white shadow-xl sticky top-0 z-20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center p-4">
+            <div class="text-4xl font-serif font-bold tracking-wider text-[#00a896]">Marée Bleu ⚓</div>
+            <p class="text-sm italic opacity-80 mt-1 md:mt-0 font-light">Coastal Elegance, Authentic Flavour</p>
+        </div>
+        <nav class="bg-[#052c42] border-t border-[#00a896] shadow-md">
+            <div class="max-w-7xl mx-auto flex justify-center flex-wrap text-lg">
+                <a href="seafood.html"
+                    class="py-3 px-6 hover:bg-[#064265] transition duration-200 font-semibold border-b-2 border-transparent hover:border-[#00a896]">Home</a>
+                <a href="menu.html"
+                    class="py-3 px-6 hover:bg-[#064265] transition duration-200 font-semibold border-b-2 border-transparent hover:border-[#00a896]">Menu</a>
+                <a href="#reservation"
+                    class="py-3 px-6 bg-[#064265] transition duration-200 font-semibold border-b-2 border-[#00a896]">Reserve</a>
+                <a href="about.html"
+                    class="py-3 px-6 hover:bg-[#064265] transition duration-200 font-semibold border-b-2 border-transparent hover:border-[#00a896]">Our
+                    Story</a>
+                <a href="contact.html"
+                    class="py-3 px-6 hover:bg-[#064265] transition duration-200 font-semibold border-b-2 border-transparent hover:border-[#00a896]">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <section id="reservation"
+            class="text-center mb-16 p-10 bg-white rounded-xl shadow-xl border-t-4 border-[#052c42]">
+            <p class="text-xl text-[#00a896] font-semibold mb-2 font-serif">Secure Your Seat</p>
+            <h1 class="text-6xl font-serif font-extrabold text-[#052c42] mb-4 tracking-tight">
+                Online Reservation Form
+            </h1>
+            <p class="text-lg max-w-4xl mx-auto text-gray-700">
+                Bookings are essential for weekend evenings. Please fill out the form accurately to confirm your table
+                instantly.
+            </p>
+        </section>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+            <div class="lg:order-1">
+                <h2 class="text-4xl font-serif font-bold text-[#052c42] mb-8">Confirm Your Details</h2>
+                <form class="bg-white p-6 md:p-10 rounded-xl shadow-2xl mx-auto border-t-8 border-[#00a896] card-hover">
+                    <div class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-semibold text-gray-700 mb-1"><strong>Full
+                                    Name</strong></label>
+                            <input id="name" type="text" name="name" placeholder="Your name" required
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#00a896] focus:border-[#00a896] transition duration-150" />
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-semibold text-gray-700 mb-1"><strong>Phone
+                                    Number</strong></label>
+                            <input id="phone" type="tel" name="phone" placeholder="e.g. 9876543210" required
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#00a896] focus:border-[#00a896] transition duration-150" />
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-1"><strong>Email
+                                    Address (for confirmation)</strong></label>
+                            <input id="email" type="email" name="email" placeholder="you@example.com" required
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#00a896] focus:border-[#00a896] transition duration-150" />
+                        </div>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div>
+                                <label for="date"
+                                    class="block text-sm font-semibold text-gray-700 mb-1"><strong>Date</strong></label>
+                                <input id="date" type="date" name="date" required
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#00a896] focus:border-[#00a896] transition duration-150" />
+                            </div>
+                            <div>
+                                <label for="time"
+                                    class="block text-sm font-semibold text-gray-700 mb-1"><strong>Time</strong></label>
+                                <select id="time" name="time" required
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#00a896] focus:border-[#00a896] transition duration-150">
+                                    <option value="">Select</option>
+                                    <option>6:00 PM</option>
+                                    <option>6:30 PM</option>
+                                    <option>7:00 PM</option>
+                                    <option>7:30 PM</option>
+                                    <option>8:00 PM</option>
+                                    <option>8:30 PM</option>
+                                    <option>9:00 PM</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="guests"
+                                    class="block text-sm font-semibold text-gray-700 mb-1"><strong>Guests</strong></label>
+                                <select id="guests" name="guests" required
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#00a896] focus:border-[#00a896] transition duration-150">
+                                    <option value="">Select</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6+</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="notes" class="block text-sm font-semibold text-gray-700 mb-1"><strong>Special
+                                    Requests (Optional)</strong></label>
+                            <textarea id="notes" name="notes" rows="3"
+                                placeholder="e.g. Anniversary, high chair, dietary needs."
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#00a896] focus:border-[#00a896] transition duration-150"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full mt-6 py-4 bg-[#00a896] text-white font-bold rounded-lg shadow-lg hover:bg-[#008c7a] transition duration-300 transform hover:scale-[1.01] focus:outline-none focus:ring-4 focus:ring-[#00a896] focus:ring-opacity-50 text-xl">
+                            Finalise Booking
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="lg:order-2 space-y-8 p-6 bg-white rounded-xl shadow-lg h-fit card-hover">
+                <h2 class="text-4xl font-serif font-bold text-[#052c42] mb-6">Reservation Policy</h2>
+                <div class="border-l-4 border-[#00a896] pl-4">
+                    <h3 class="text-xl font-serif font-semibold text-[#052c42] mb-1"><strong>Large Parties</strong></h3>
+                    <p class="text-gray-600 text-sm">For groups of 7 or more, please call us directly at <a
+                            href="tel:+919876543210" class="text-[#00a896] hover:text-[#052c42] font-medium">+91 98765
+                            43210</a> to arrange a
+                        custom seating solution.</p>
+                </div>
+                <div class="border-l-4 border-[#00a896] pl-4">
+                    <h3 class="text-xl font-serif font-semibold text-[#052c42] mb-1"><strong>Punctuality</strong></h3>
+                    <p class="text-gray-600 text-sm">We observe a strict 15-minute grace period. Late arrivals may
+                        result in the forfeiture of your table during peak hours.</p>
+                </div>
+                <div class="border-l-4 border-[#00a896] pl-4">
+                    <h3 class="text-xl font-serif font-semibold text-[#052c42] mb-1"><strong>Cancellation</strong></h3>
+                    <p class="text-gray-600 text-sm">Kindly notify us at least 3 hours in advance for any cancellations
+                        or modifications to your reservation.</p>
+                </div>
+                <div class="bg-[#052c42] text-white p-6 rounded-lg shadow-xl text-center">
+                    <p class="text-lg font-semibold font-serif">Questions about your booking?</p>
+                    <a href="contact.html" class="text-[#00a896] text-sm hover:text-white transition duration-200">Visit
+                        our Contact
+                        Page</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-[#052c42] text-white p-14 mt-10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div>
+                <h3 class="text-3xl font-serif font-bold text-[#00a896] mb-4">Marée Bleu</h3>
+                <p class="text-sm opacity-80 font-light">
+                    Since 1998. Dedicated to sourcing, tradition, and service. Located on the beautiful Baga Coast.
+                </p>
+                <a href="#reservation"
+                    class="inline-block mt-4 text-[#00a896] text-sm hover:text-white transition duration-200">
+                    ↑ Back to Top
+                </a>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold mb-4 border-b border-[#064265] pb-2">Connect</h4>
+                <p>📍 <strong>Address:</strong> Baga Beach Road, Goa 403516</p>
+                <p>📞 <strong>Phone:</strong> <a href="tel:+919876543210"
+                        class="hover:text-[#00a896] transition duration-200">+91 98765 43210</a></p>
+                <p>✉️ <strong>Email:</strong> <a href="mailto:info@mareebleu.com"
+                        class="hover:text-[#00a896] transition duration-200">info@mareebleu.com</a></p>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold mb-4 border-b border-[#064265] pb-2">Navigation</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="menu.html" class="hover:text-[#00a896] transition duration-200">View Menu</a></li>
+                    <li><a href="reserve.html" class="hover:text-[#00a896] transition duration-200">Reservations</a>
+                    </li>
+                    <li><a href="about.html" class="hover:text-[#00a896] transition duration-200">Our Heritage</a></li>
+                    <li><a href="contact.html" class="hover:text-[#00a896] transition duration-200">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-1">
+                <h4 class="text-xl font-semibold mb-4 border-b border-[#064265] pb-2">Location</h4>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15092.179313936643!2d72.81223944208756!3d18.95152204128038!2m3!1f0!2f0!0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7d1e0f0a26a81%3A0x87d6e47e053c1512!2sMarine%20Drive!5e0!3m2!1sen!2sin!4v1727432075123!5m2!1sen!2sin"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    class="w-full h-40 rounded-lg opacity-90 border-2 border-[#00a896]">
+                </iframe>
+            </div>
+        </div>
+        <div class="text-center border-t border-[#064265] pt-6 mt-6">
+            <p class="text-xs opacity-70">© 2025 Marée Bleu. All rights reserved. | Site by Coastal Designs.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

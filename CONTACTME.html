@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Rudra Palash Das</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body {
+            font-family: "Questrial", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d0d0d;
+            color: #f2f2f2;
+        }
+
+        header {
+            background-color: #ff6600;
+            padding: 20px;
+        }
+
+        #navigationbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        #logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .linksofnavigationbar a {
+            margin: 0 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 80px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .linksofnavigationbar a:hover,
+        .linksofnavigationbar a.active {
+            background-color: #ffffff;
+            color: #ff6600;
+        }
+
+        #contact-section {
+            background-color: #1a1a1a;
+            padding: 60px 20px;
+        }
+
+        .contact-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-wrapper h2 {
+            font-size: 42px;
+            color: #ff6600;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .contact-wrapper>p {
+            font-size: 18px;
+            color: #cccccc;
+            line-height: 1.7;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-grid {
+            display: flex;
+            gap: 50px;
+            background-color: #0d0d0d;
+            padding: 40px;
+            border-radius: 18px;
+            text-align: left;
+        }
+
+        .contact-details,
+        .contact-form-container {
+            flex: 1;
+        }
+
+        .contact-details h3 {
+            font-size: 28px;
+            color: #ff9933;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            color: #cccccc;
+            text-decoration: none;
+        }
+
+        .contact-info-item i {
+            font-size: 22px;
+            color: #ff6600;
+            width: 40px;
+            text-align: center;
+            margin-right: 15px;
+        }
+
+        .contact-info-item span {
+            font-size: 17px;
+        }
+
+        .contact-socials {
+            margin-top: 40px;
+            border-top: 1px solid #333;
+            padding-top: 30px;
+        }
+
+        .contact-socials a {
+            color: #cccccc;
+            margin: 0 12px;
+            font-size: 28px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-socials a:hover {
+            color: #ff9933;
+        }
+
+        form p {
+            font-size: 16px;
+            margin: 10px 0 5px 0;
+            font-weight: bold;
+            color: #f2f2f2;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #444;
+            border-radius: 8px;
+            background-color: #2a2a2a;
+            color: #f2f2f2;
+            font-family: "Questrial", sans-serif;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #ff6600;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #ff9933;
+            transform: scale(1.02);
+        }
+
+        footer {
+            background-color: #0d0d0d;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin-top: 15px;
+            color: #b3b3b3;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="holder" id="navigationbar">
+            <a href="index.html" id="logo">Rudra Palash Das</a>
+            <div class="linksofnavigationbar">
+                <a href="ABOUTPAGE.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="CONTACTME.html" class="active">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="contact-section">
+            <div class="contact-wrapper">
+                <h2>Let's Connect</h2>
+                <p>
+                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
+                    vision. Feel free to reach out using the form below or through my social channels.
+                </p>
+                <div class="contact-grid">
+                    <div class="contact-details">
+                        <h3>Contact Information</h3>
+                        <a href="mailto:rudrapalash2007@gmail.com" class="contact-info-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>rudrapalash2007@gmail.com</span>
+                        </a>
+                        <a href="tel:+917430957600" class="contact-info-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+91 74309 57600</span>
+                        </a>
+                        <div class="contact-info-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>West Bengal, India</span>
+                        </div>
+                        <div class="contact-socials">
+                            <a href="https://github.com/rudrafx" target="_blank" aria-label="GitHub"><i
+                                    class="fa-brands fa-github"></i></a>
+                            <a href="https://linkedin.com/rudrafx" target="_blank" aria-label="LinkedIn"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://www.instagram.com/ukwhoimright" target="_blank" aria-label="Instagram"><i
+                                    class="fa-brands fa-instagram"></i></a>
+                            <a href="https://letterboxd.com/rudrafx" target="_blank" aria-label="Letterboxd"><i
+                                    class="fa-solid fa-film"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form-container">
+                        <form action="#" method="get">
+                            <p>Name:</p>
+                            <input type="text" id="name" required placeholder="Your Name">
+                            <p>Email:</p>
+                            <input type="email" id="email" required placeholder="Your Email Address">
+                            <p>Message:</p>
+                            <textarea id="message" required placeholder="How can I help you?"></textarea>
+                            <br>
+                            <button type="submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Rudra Palash Das &copy; 2025 | All Rights Reserved</p>
+    </footer>
+</body>
+
+</html>

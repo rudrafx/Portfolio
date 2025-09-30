@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CinemaComet - Online Tickets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary-color: #ff69b4;
+            --secondary-color: #a020f0;
+            --dark-bg: #121212;
+            --light-bg: #1a1a1a;
+            --card-bg: #222;
+            --text-light: #f0f0f0;
+            --text-dark: #bbb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #333;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .auth-btn {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .auth-btn.signup {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+        }
+
+        .auth-btn:hover {
+            transform: translateY(-2px);
+        }
+
+
+        nav {
+            margin-top: 15px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 600;
+            transition: color .3s, text-shadow .3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+            text-shadow: 0 0 5px var(--primary-color);
+        }
+
+        main {
+            flex-grow: 1;
+            /* This makes the main content take up available space, pushing footer down */
+            max-width: 1200px;
+            width: 100%;
+            margin: 40px auto;
+            background: var(--light-bg);
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            padding: 30px 40px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+        }
+
+        .booking-flow {
+            padding-right: 40px;
+            border-right: 1px solid #333;
+        }
+
+        .summary-box {
+            background-color: var(--dark-bg);
+            padding: 20px;
+            border-radius: 12px;
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+
+        .summary-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+        }
+
+        .summary-item {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .summary-item strong {
+            color: var(--text-light);
+        }
+
+        .summary-total {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #444;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .summary-discount {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        .progress {
+            height: 8px;
+            width: 100%;
+            background: #333;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .prog-active {
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            height: 100%;
+            border-radius: 4px;
+            transition: width .4s ease;
+        }
+
+        .step {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        #step0 {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #step0 h2 {
+            text-align: center;
+        }
+
+        #step0 p {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+        }
+
+        #step0 .button {
+            margin: 0 auto;
+            display: block;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            align-items: center;
+        }
+
+        .button,
+        .back-button {
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 105, 180, .2);
+        }
+
+        .button:disabled {
+            background: #444;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .back-button {
+            background: #333;
+        }
+
+        .back-button:hover {
+            background: #444;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .movie-card,
+        .theatre-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 12px;
+            cursor: pointer;
+            transition: transform .2s, border .2s;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .movie-card:hover,
+        .theatre-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .movie-card.selected,
+        .theatre-card.selected {
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 15px rgba(255, 105, 180, .2);
+        }
+
+        .movie-poster {
+            width: 100%;
+            height: 280px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .movie-title,
+        .theatre-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 10px;
+            color: var(--text-light);
+        }
+
+        .theatre-location {
+            font-size: .9rem;
+            color: var(--text-dark);
+            margin-top: 4px;
+        }
+
+        .show-times {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .show-time-btn {
+            background: var(--card-bg);
+            color: var(--text-light);
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background .2s, color .2s;
+        }
+
+        .show-time-btn:hover {
+            background: var(--secondary-color);
+            color: #fff;
+        }
+
+        .show-time-btn.selected {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            font-weight: bold;
+            border-color: var(--primary-color);
+        }
+
+        .seat-grid {
+            display: grid;
+            grid-template-columns: repeat(15, 1fr);
+            gap: 8px;
+            margin: 30px 0;
+            justify-items: center;
+        }
+
+        .seat {
+            width: 36px;
+            height: 36px;
+            background: #444;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all .2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .7rem;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .seat.selected {
+            background: var(--primary-color);
+            color: #000;
+            transform: scale(1.1);
+        }
+
+        .seat.occupied {
+            background: #222;
+            cursor: not-allowed;
+        }
+
+        .screen {
+            margin: 0 auto 30px auto;
+            width: 90%;
+            padding: 8px 0;
+            background: #222;
+            color: var(--text-dark);
+            text-align: center;
+            border-radius: 4px;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin: 15px 0;
+        }
+
+        label {
+            font-weight: 500;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input,
+        select {
+            padding: 12px;
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #555;
+            font-size: 1rem;
+            background: #222;
+            color: #fff;
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 8px rgba(255, 105, 180, .3);
+            outline: none;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .payment-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .payment-method {
+            padding: 15px;
+            text-align: center;
+            background: var(--card-bg);
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid #444;
+            transition: all .2s;
+            font-weight: 500;
+        }
+
+        .payment-method:hover {
+            background: #3a3a3a;
+            transform: translateY(-3px);
+        }
+
+        .payment-method.selected {
+            border-color: var(--primary-color);
+            background: var(--secondary-color);
+        }
+
+        #payment-details-container .form-group {
+            margin-top: 15px;
+        }
+
+        .payment-form {
+            display: none;
+        }
+
+        .payment-form.active {
+            display: block;
+            animation: fadeIn 0.4s;
+        }
+
+        .coupon-section {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            align-items: center;
+        }
+
+        #coupon-input {
+            flex-grow: 1;
+        }
+
+        #apply-coupon-btn {
+            padding: 12px 20px;
+            background: #333;
+        }
+
+        #coupon-message.success {
+            color: #2ecc71;
+        }
+
+        #coupon-message.error {
+            color: #e74c3c;
+        }
+
+        .ticket {
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: center;
+            border: 1px solid #444;
+        }
+
+        .ticket h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+        }
+
+        .success-msg {
+            color: #2ecc71;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .ticket-id {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin: 15px 0;
+            font-weight: 600;
+            background: #333;
+            padding: 8px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .ticket-details {
+            text-align: left;
+            margin: 20px auto;
+            line-height: 1.8;
+            border-top: 1px dashed #555;
+            padding: 20px 0;
+        }
+
+        .ticket-details p,
+        .ticket-details div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .ticket-total {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            border-top: 1px dashed #555;
+            padding-top: 20px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .ticket-details strong {
+            color: var(--primary-color);
+        }
+
+        .fnb-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 20px;
+        }
+
+        .fnb-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: var(--card-bg);
+            padding: 10px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #444;
+        }
+
+        .fnb-item img {
+            width: 100%;
+            height: 100px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .fnb-item h4 {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .fnb-item p {
+            color: var(--text-dark);
+            font-size: .9rem;
+            margin-bottom: 10px;
+        }
+
+        .add-btn {
+            background-color: var(--primary-color);
+            color: black;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            padding: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .add-btn:hover {
+            background-color: #ff85c1;
+        }
+
+        .quantity-control {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+        }
+
+        .quantity-control button {
+            background: #444;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .quantity-control span {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        /* --- CHAT BOT STYLES --- */
+        #chat-bubble {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            z-index: 101;
+        }
+
+        #chat-bubble:hover {
+            transform: scale(1.1);
+        }
+
+        #chat-bubble svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        #chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background: var(--light-bg);
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s ease-in-out;
+            z-index: 100;
+        }
+
+        #chat-window.hidden {
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+            pointer-events: none;
+        }
+
+        .chat-header {
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 15px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h4 {
+            margin: 0;
+        }
+
+        #close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .chat-body {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-message.bot {
+            align-items: flex-start;
+        }
+
+        .chat-message.user {
+            align-items: flex-end;
+        }
+
+        .chat-message p {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            line-height: 1.4;
+        }
+
+        .chat-message.bot p {
+            background: #333;
+            border-bottom-left-radius: 4px;
+        }
+
+        .chat-message.user p {
+            background: var(--primary-color);
+            color: black;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-footer {
+            padding: 10px;
+            border-top: 1px solid #333;
+            display: flex;
+            gap: 10px;
+        }
+
+        #chat-input {
+            flex-grow: 1;
+            background: #333;
+            border: 1px solid #555;
+            color: white;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        #send-chat-btn {
+            background: var(--primary-color);
+            border: none;
+            color: black;
+            font-weight: bold;
+            border-radius: 8px;
+            padding: 0 15px;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #000;
+            color: #888;
+            padding: 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        @media(max-width: 900px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-flow {
+                border-right: none;
+                padding-right: 0;
+            }
+
+            .summary-box {
+                position: static;
+                margin-top: 30px;
+            }
+        }
+
+        @media(max-width: 600px) {
+            main {
+                padding: 20px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .seat-grid {
+                grid-template-columns: repeat(10, 1fr);
+                gap: 5px;
+            }
+
+            .seat {
+                width: 30px;
+                height: 30px;
+                font-size: 0.6rem;
+            }
+
+            .button-group {
+                flex-direction: column-reverse;
+                gap: 15px;
+            }
+
+            .button,
+            .back-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            #chat-window {
+                width: 90%;
+                height: 70%;
+                bottom: 80px;
+                right: 5%;
+            }
+
+            #chat-bubble {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <h1>CinemaComet</h1>
+            <div class="auth-buttons">
+                <button class="auth-btn" id="login-btn">Login</button>
+                <button class="auth-btn signup" id="signup-btn">Sign Up</button>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">My Orders</a></li>
+                <li><a href="#">Now Showing</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="booking-flow">
+            <div class="progress">
+                <div id="progbar-fill" class="prog-active" style="width: 0%"></div>
+            </div>
+            <div id="step0" class="step active"></div>
+            <div id="step1" class="step"></div>
+            <div id="step2" class="step"></div>
+            <div id="step3" class="step"></div>
+            <div id="step4" class="step"></div>
+            <div id="step5" class="step"></div>
+            <div id="step6" class="step"></div>
+            <div id="step7" class="step"></div>
+            <div id="step8" class="step"></div>
+        </div>
+        <aside class="summary-box">
+            <div id="summary-container"></div>
+        </aside>
+    </main>
+
+    <div id="chat-bubble"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+        </svg></div>
+    <div id="chat-window" class="hidden">
+        <div class="chat-header">
+            <h4>Support Bot</h4><button id="close-chat">&times;</button>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-message bot">
+                <p>Hello! Ask me a question.</p>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chat-input" placeholder="Type a message...">
+            <button id="send-chat-btn">Send</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 CinemaComet. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24">
+                        <path
+                            d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
+                    </svg></a>
+                <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg></a>
+                <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.04C6.5 2.04 2 6.53 2 12.06c0 5.52 4.5 10.02 10 10.02s10-4.5 10-10.02C22 6.53 17.5 2.04 12 2.04zM16.5 8.25h-2.25c-.2 0-.45.1-.45.5v1.5h2.7l-.45 2.25h-2.25V22h-3V12.5h-2.25V10.25h2.25V8.5c0-2 .9-3.25 3.25-3.25h2.2V8.25z" />
+                    </svg></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- UI TEMPLATES ---
+        document.getElementById('step0').innerHTML = `<h2>Welcome to CinemaComet</h2><p>Book your favourite movies in top theatres with ease.</p><button class="button" id="start-btn">Tap to Start Booking</button>`;
+        document.getElementById('step1').innerHTML = `<h2>Select Theatre</h2><div class="grid" id="theatre-list"></div><div class="button-group"><span></span><button class="button" id="next1" disabled>Next</button></div>`;
+        document.getElementById('step2').innerHTML = `<h2>Select Movie</h2><div class="grid" id="movie-list"></div><div class="button-group"><button class="back-button" id="back2">Back</button><button class="button" id="next2" disabled>Next</button></div>`;
+        document.getElementById('step3').innerHTML = `<h2>Select Show Time</h2><div class="show-times" id="showtime-list"></div><div class="button-group"><button class="back-button" id="back3">Back</button><button class="button" id="next3" disabled>Next</button></div>`;
+        document.getElementById('step4').innerHTML = `<h2>Select Seats</h2><div class="screen">SCREEN</div><div class="seat-grid" id="seat-grid"></div><div class="button-group"><button class="back-button" id="back4">Back</button><button class="button" id="next4" disabled>Next</button></div>`;
+        document.getElementById('step5').innerHTML = `<h2>Food & Beverages</h2><div class="fnb-options" id="fnb-list"></div><div class="button-group"><button class="back-button" id="back5">Back</button><button class="button" id="next5">Skip & Next</button></div>`;
+        document.getElementById('step6').innerHTML = `<h2>Enter Details</h2><div class="form-group"><label>Name</label><input type="text" id="cust-name"></div><div class="form-group"><label>Email</label><input type="email" id="cust-email"></div><div class="form-group"><label>Phone</label><input type="tel" id="cust-phone"></div><div class="button-group"><button class="back-button" id="back6">Back</button><button class="button" id="next6">Next</button></div>`;
+        document.getElementById('step7').innerHTML = `<h2>Payment</h2><div class="payment-options" id="payment-list"></div><div class="coupon-section"> <input type="text" id="coupon-input" placeholder="Enter Coupon Code"><button class="button" id="apply-coupon-btn">Apply</button> </div> <p id="coupon-message"></p> <div id="payment-details-container"></div><div class="button-group"><button class="back-button" id="back7">Back</button><button class="button" id="pay-btn" disabled>Pay Now</button></div>`;
+        document.getElementById('step8').innerHTML = `<div class="ticket"><h2>Booking Confirmed!</h2><div class="success-msg">Your booking has been successfully placed.</div><div class="ticket-id" id="ticket-id"></div><div id="ticket-details"></div><img id="qrCode" src="" alt="QR Code"></div>`;
+        document.getElementById('summary-container').innerHTML = `<h3>Your Booking Summary</h3><div id="summary-content"></div>`;
+
+        // --- DATA & CONSTANTS ---
+        const SEAT_PRICE = 250; const CONVENIENCE_FEE = 50;
+        const coupons = { "SAVE10": { type: 'percentage', value: 10 }, "FLAT50": { type: 'flat', value: 50 } };
+        const theatres = [{ name: "INOX Taksh Galaxy Mall", location: "Galaxy Mall, Surat", showtimes: ["10:00 AM", "1:30 PM", "5:00 PM", "8:30 PM"] }, { name: "PVR Transcube", location: "Transcube, Surat", showtimes: ["9:30 AM", "12:45 PM", "4:15 PM", "7:45 PM"] }, { name: "Cinepolis Inorbit Mall", location: "Inorbit Mall, Surat", showtimes: ["11:00 AM", "2:30 PM", "6:00 PM", "9:30 PM"] }, { name: "Rajhans Cinemas", location: "Adajan, Surat", showtimes: ["10:15 AM", "1:00 PM", "4:45 PM", "8:15 PM"] }, { name: "Connplex Cinemas", location: "VR Mall, Surat", showtimes: ["9:45 AM", "1:15 PM", "5:15 PM", "8:45 PM"] }, { name: "INOX Race Course Circle", location: "Race Course, Vadodara", showtimes: ["10:30 AM", "2:00 PM", "5:30 PM", "9:00 PM"] }];
+        const movies = [{ title: "Avengers Doomsday", poster: "https://m.media-amazon.com/images/M/MV5BMGNiN2RlZTMtMTkyZC00YjkwLTgyY2QtMDg1ZDNhODQwNWM4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" }, { title: "Avengers Secret Wars", poster: "https://w0.peakpx.com/wallpaper/603/306/HD-wallpaper-avengers-secret-wars-marvel-poster.jpg" }, { title: "Spiderman Brand New Day", poster: "https://i.pinimg.com/736x/91/4e/4e/914e4e695e688c2671108445e0a57f3e.jpg" }, { title: "Avatar Fire and Ash", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSHuY484VNuH6DQea0DwgHsAYgZCbR0a-jxmLbciys8zoHjd1JJZut8oRSdcQE0lQnAyckwew" }, { title: "Ballerina", poster: "https://m.media-amazon.com/images/M/MV5BNzdhZmY2OTQtYWI4OC00ZThkLTlhZjAtNzE2YzRjM2Q5YjJlXkEyXkFqcGc@._V1_.jpg" }, { title: "Ramayana", poster: "https://cdn.district.in/movies-assets/images/cinema/Ramayana_Poster-8b5d8530-5808-11f0-8c69-e1cfd333c047.jpg" }];
+        const fnbItems = [{ name: "Popcorn", price: 150, img: "https://static.vecteezy.com/system/resources/thumbnails/042/236/044/small_2x/ai-generated-popcorn-in-striped-box-isolated-on-transparent-background-png.png" }, { name: "Cold Drink", price: 120, img: "https://static.vecteezy.com/system/resources/thumbnails/047/429/595/small_2x/refreshing-glass-of-cola-with-ice-cubes-splashing-out-perfect-for-representing-a-cool-beverage-or-drink-advertisement-png.png" }, { name: "Nachos", price: 200, img: "https://static.vecteezy.com/system/resources/thumbnails/024/508/506/small_2x/nachos-isolated-on-background-with-generative-ai-png.png" }, { name: "Burger", price: 250, img: "https://static.vecteezy.com/system/resources/thumbnails/022/911/694/small_2x/cute-cartoon-burger-icon-free-png.png" }, { name: "Pizza", price: 300, img: "https://static.vecteezy.com/system/resources/thumbnails/022/149/342/small_2x/hot-italian-pizza-cutout-png.png" }];
+        const payments = [{ name: "Credit Card", id: "cc" }, { name: "Debit Card", id: "dc" }, { name: "UPI", id: "upi" }, { name: "Net Banking", id: "nb" }, { name: "Gift Voucher", id: "gv" }];
+
+        // --- STATE ---
+        let selectedTheatre = null, selectedMovie = null, selectedShow = null, selectedSeats = [], selectedFnb = [], selectedPayment = null, appliedCoupon = null;
+        let customerDetails = {}; let ticketID = "";
+
+        // --- CORE FUNCTIONS ---
+        function navigate(current, next) { document.getElementById(`step${current}`).classList.remove('active'); document.getElementById(`step${next}`).classList.add('active'); const progress = (next > 0) ? (next / 8 * 100) : 0; document.getElementById('progbar-fill').style.width = progress + '%'; }
+        function calculateTotal() { const seatsCost = selectedSeats.length * SEAT_PRICE; const fnbCost = selectedFnb.reduce((total, item) => total + (item.price * item.quantity), 0); const subtotal = seatsCost + fnbCost; const fee = (subtotal > 0) ? CONVENIENCE_FEE : 0; let finalTotal = subtotal + fee; let discount = 0; if (appliedCoupon) { if (appliedCoupon.type === 'percentage') { discount = (subtotal * (appliedCoupon.value / 100)); } else { discount = appliedCoupon.value; } finalTotal -= discount; } return { seatsCost, fnbCost, convenienceFee: fee, grandTotal: Math.max(0, finalTotal), discount }; }
+        function updateSummary() { const summaryContent = document.getElementById("summary-content"); if (!selectedTheatre) { summaryContent.innerHTML = `<p class="summary-item">No selections made yet.</p>`; return; } let html = ""; const total = calculateTotal(); html += `<p class="summary-item"><strong>Theatre:</strong> ${selectedTheatre.name}</p>`; if (selectedMovie) html += `<p class="summary-item"><strong>Movie:</strong> ${selectedMovie.title}</p>`; if (selectedShow) html += `<p class="summary-item"><strong>Time:</strong> ${selectedShow}</p>`; if (selectedSeats.length > 0) html += `<p class="summary-item"><strong>Seats (${selectedSeats.length}):</strong> ₹${total.seatsCost}</p>`; if (selectedFnb.length > 0) { html += `<p class="summary-item"><strong>Snacks:</strong></p>`; selectedFnb.forEach(item => { html += `<p class="summary-item" style="padding-left: 10px;">- ${item.name} x${item.quantity}: ₹${item.price * item.quantity}</p>`; }); } if (total.convenienceFee > 0) html += `<p class="summary-item"><strong>Fee:</strong> ₹${total.convenienceFee}</p>`; if (total.discount > 0) html += `<p class="summary-item summary-discount"><strong>Discount:</strong> - ₹${total.discount.toFixed(2)}</p>`; if (total.grandTotal > 0 || selectedSeats.length > 0) html += `<div class="summary-total">Total: ₹${total.grandTotal.toFixed(2)}</div>`; summaryContent.innerHTML = html; }
+        function changeFnbQuantity(itemName, change) { let itemInCart = selectedFnb.find(item => item.name === itemName); if (itemInCart) { itemInCart.quantity += change; if (itemInCart.quantity <= 0) { selectedFnb = selectedFnb.filter(item => item.name !== itemName); } } else if (change > 0) { const itemToAdd = fnbItems.find(item => item.name === itemName); selectedFnb.push({ ...itemToAdd, quantity: 1 }); } renderFnb(); updateSummary(); }
+
+        // --- RENDER FUNCTIONS ---
+        function renderTheatres() { const list = document.getElementById("theatre-list"); list.innerHTML = ""; theatres.forEach(t => { const card = document.createElement("div"); card.className = "theatre-card"; card.innerHTML = `<div class="theatre-title">${t.name}</div><div class="theatre-location">${t.location}</div>`; card.onclick = () => { selectedTheatre = t; document.querySelectorAll(".theatre-card").forEach(c => c.classList.remove("selected")); card.classList.add("selected"); document.getElementById("next1").disabled = false; updateSummary(); }; list.appendChild(card); }); }
+        function renderMovies() { const list = document.getElementById("movie-list"); list.innerHTML = ""; movies.forEach(m => { const card = document.createElement("div"); card.className = "movie-card"; card.innerHTML = `<img src="${m.poster}" class="movie-poster"><div class="movie-title">${m.title}</div>`; card.onclick = () => { selectedMovie = m; document.querySelectorAll(".movie-card").forEach(c => c.classList.remove("selected")); card.classList.add("selected"); document.getElementById("next2").disabled = false; updateSummary(); }; list.appendChild(card); }); }
+        function renderShowtimes() { const list = document.getElementById("showtime-list"); list.innerHTML = ""; selectedTheatre.showtimes.forEach(s => { const btn = document.createElement("button"); btn.className = "show-time-btn"; btn.textContent = s; btn.onclick = () => { selectedShow = s; document.querySelectorAll(".show-time-btn").forEach(b => b.classList.remove("selected")); btn.classList.add("selected"); document.getElementById("next3").disabled = false; updateSummary(); }; list.appendChild(btn); }); }
+        function renderSeats() { const grid = document.getElementById("seat-grid"); grid.innerHTML = ""; for (let r = 0; r < 10; r++) { const rowLetter = String.fromCharCode(65 + r); for (let c = 1; c <= 15; c++) { const seat = document.createElement("div"); const seatId = `${rowLetter}${c}`; seat.className = "seat"; seat.textContent = seatId; if (Math.random() < 0.15) seat.classList.add("occupied"); seat.onclick = () => { if (seat.classList.contains("occupied")) return; seat.classList.toggle("selected"); if (selectedSeats.includes(seatId)) { selectedSeats = selectedSeats.filter(s => s !== seatId); } else { selectedSeats.push(seatId); } document.getElementById("next4").disabled = selectedSeats.length === 0; updateSummary(); }; grid.appendChild(seat); } } }
+        function renderFnb() { const list = document.getElementById("fnb-list"); list.innerHTML = ""; fnbItems.forEach(item => { const div = document.createElement("div"); div.className = "fnb-item"; const itemInCart = selectedFnb.find(i => i.name === item.name); let controlsHtml = itemInCart ? `<div class="quantity-control"><button onclick="changeFnbQuantity('${item.name}', -1)">-</button><span>${itemInCart.quantity}</span><button onclick="changeFnbQuantity('${item.name}', 1)">+</button></div>` : `<button class="add-btn" onclick="changeFnbQuantity('${item.name}', 1)">Add</button>`; div.innerHTML = `<div><img src="${item.img}" alt="${item.name}"><h4>${item.name}</h4><p>₹${item.price}</p></div>${controlsHtml}`; list.appendChild(div); }); }
+        function renderPayments() {
+            const list = document.getElementById("payment-list"); const detailsContainer = document.getElementById('payment-details-container'); list.innerHTML = ""; detailsContainer.innerHTML = `<h3>Enter Payment Details</h3>
+        <div id="cc-form" class="payment-form"><div class="form-group"><label>Card Holder Name</label><input type="text" placeholder="e.g. Rudra Palash Das"></div><div class="form-group"><label>Card Number</label><input type="text" placeholder="XXXX XXXX XXXX XXXX"></div><div class="form-row"><div class="form-group"><label>Expiry Date</label><input type="text" placeholder="MM/YY"></div><div class="form-group"><label>CVV</label><input type="password" placeholder="XXX" maxlength="3"></div></div></div>
+        <div id="dc-form" class="payment-form"><div class="form-group"><label>Card Holder Name</label><input type="text" placeholder="e.g. Rudra Palash Das"></div><div class="form-group"><label>Card Number</label><input type="text" placeholder="XXXX XXXX XXXX XXXX"></div><div class="form-row"><div class="form-group"><label>Expiry Date</label><input type="text" placeholder="MM/YY"></div><div class="form-group"><label>CVV</label><input type="password" placeholder="XXX" maxlength="3"></div></div></div>
+        <div id="upi-form" class="payment-form"><div class="form-group"><label>UPI ID</label><input type="text" placeholder="yourname@bank"></div></div>
+        <div id="nb-form" class="payment-form"><div class="form-group"><label>Select Bank</label><select><option>State Bank of India</option><option>HDFC Bank</option><option>ICICI Bank</option><option>Axis Bank</option></select></div></div>
+        <div id="gv-form" class="payment-form"><div class="form-group"><label>Voucher Code</label><input type="text" placeholder="Enter Gift Voucher Code"></div><div class="form-group"><label>Voucher PIN</label><input type="password" placeholder="Enter PIN" maxlength="4"></div></div>`;
+            payments.forEach(p => { const div = document.createElement("div"); div.className = "payment-method"; div.textContent = p.name; div.onclick = () => { selectedPayment = p; document.querySelectorAll(".payment-method").forEach(x => x.classList.remove("selected")); div.classList.add("selected"); document.getElementById("pay-btn").disabled = false; document.querySelectorAll('.payment-form').forEach(form => form.classList.remove('active')); document.getElementById(`${p.id}-form`).classList.add('active'); }; list.appendChild(div); }); document.getElementById('apply-coupon-btn').onclick = applyCoupon;
+        }
+        function applyCoupon() { const code = document.getElementById('coupon-input').value.toUpperCase(); const messageEl = document.getElementById('coupon-message'); if (coupons[code]) { appliedCoupon = coupons[code]; messageEl.textContent = `Success! "${code}" applied.`; messageEl.className = 'success'; } else { appliedCoupon = null; messageEl.textContent = "Invalid coupon code."; messageEl.className = 'error'; } updateSummary(); }
+        function renderTicket() { ticketID = "CCT" + Math.floor(Math.random() * 999999); const total = calculateTotal(); document.getElementById("ticket-id").textContent = ticketID; let fnbHtml = selectedFnb.map(item => `<p><span>- ${item.name} x${item.quantity}</span> <span>₹${item.price * item.quantity}</span></p>`).join(''); document.getElementById("ticket-details").innerHTML = `<div><strong>Theatre:</strong> <span>${selectedTheatre.name}</span></div><div><strong>Movie:</strong> <span>${selectedMovie.title}</span></div><div><strong>Showtime:</strong> <span>${selectedShow}</span></div><div><strong>Seats:</strong> <span>${selectedSeats.join(", ")}</span></div><hr style="border: 1px dashed #444; margin: 15px 0;"><p><strong>Tickets (${selectedSeats.length}):</strong> <span>₹${total.seatsCost}</span></p>${fnbHtml ? `<p><strong>F&B Total:</strong></p>${fnbHtml}` : ''}<p><strong>Convenience Fee:</strong> <span>₹${total.convenienceFee}</span></p>${total.discount > 0 ? `<p class="summary-discount"><strong>Discount:</strong><span>- ₹${total.discount.toFixed(2)}</span></p>` : ''}<div class="ticket-total"><strong>Grand Total:</strong> <span>₹${total.grandTotal.toFixed(2)}</span></div>`; document.getElementById("qrCode").src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + ticketID; }
+
+        // --- EVENT LISTENERS ---
+        document.getElementById("start-btn").onclick = () => { renderTheatres(); navigate(0, 1); document.getElementById('step0').style.display = 'none'; }; document.getElementById("next1").onclick = () => { renderMovies(); navigate(1, 2); }; document.getElementById("next2").onclick = () => { renderShowtimes(); navigate(2, 3); }; document.getElementById("next3").onclick = () => { renderSeats(); navigate(3, 4); }; document.getElementById("next4").onclick = () => { renderFnb(); navigate(4, 5); }; document.getElementById("next5").onclick = () => { navigate(5, 6); }; document.getElementById("next6").onclick = () => { const name = document.getElementById("cust-name").value.trim(); const email = document.getElementById("cust-email").value.trim(); const phone = document.getElementById("cust-phone").value.trim(); if (name && email && phone) { customerDetails = { name, email, phone }; renderPayments(); navigate(6, 7); } else { alert("Please fill in all your details."); } }; document.getElementById("pay-btn").onclick = () => { renderTicket(); navigate(7, 8); };
+        document.getElementById("back2").onclick = () => navigate(2, 1); document.getElementById("back3").onclick = () => navigate(3, 2); document.getElementById("back4").onclick = () => navigate(4, 3); document.getElementById("back5").onclick = () => navigate(5, 4); document.getElementById("back6").onclick = () => navigate(6, 5); document.getElementById("back7").onclick = () => navigate(7, 6);
+
+        // --- CHAT BOT SCRIPT ---
+        const chatBubble = document.getElementById('chat-bubble'); const chatWindow = document.getElementById('chat-window'); const closeChat = document.getElementById('close-chat'); const chatBody = document.getElementById('chat-body'); const chatInput = document.getElementById('chat-input'); const sendChatBtn = document.getElementById('send-chat-btn');
+        const qaPairs = { "cancel": "You can cancel your ticket from the 'My Orders' section up to 2 hours before the showtime.", "discount": "We have special offers for credit card holders and on Tuesdays. Please check the 'Offers' section.", "timing": "Show timings vary. Please select a theatre and movie to see the available showtimes.", "food": "Sorry, outside food and beverages are not permitted inside the theatre halls.", "hello": "Hello! How can I assist you with your booking today?" };
+        function getBotResponse(userInput) { const lowerInput = userInput.toLowerCase(); for (const keyword in qaPairs) { if (lowerInput.includes(keyword)) { return qaPairs[keyword]; } } return "I'm sorry, I don't understand that question. Please try asking about cancellations, discounts, or timings."; }
+        function handleSendChat() { const userInput = chatInput.value.trim(); if (!userInput) return; appendMessage(userInput, 'user'); chatInput.value = ""; setTimeout(() => { const botResponse = getBotResponse(userInput); appendMessage(botResponse, 'bot'); }, 600); }
+        function appendMessage(text, type) { const messageDiv = document.createElement('div'); messageDiv.className = `chat-message ${type}`; const p = document.createElement('p'); p.textContent = text; messageDiv.appendChild(p); chatBody.appendChild(messageDiv); chatBody.scrollTop = chatBody.scrollHeight; }
+        chatBubble.addEventListener('click', () => chatWindow.classList.toggle('hidden')); closeChat.addEventListener('click', () => chatWindow.classList.add('hidden')); sendChatBtn.addEventListener('click', handleSendChat); chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSendChat(); });
+
+        // --- INITIAL RENDER ---
+        updateSummary();
+    </script>
+</body>
+
+</html>

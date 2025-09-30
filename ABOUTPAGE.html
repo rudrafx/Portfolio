@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Rudra Palash Das</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body {
+            font-family: "Questrial", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d0d0d;
+            color: #f2f2f2;
+            text-align: center;
+        }
+
+        header {
+            background-color: #ff6600;
+            padding: 20px;
+        }
+
+        #navigationbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        #logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .linksofnavigationbar a {
+            margin: 0 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 80px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .linksofnavigationbar a:hover,
+        .linksofnavigationbar a.active {
+            background-color: #ffffff;
+            color: #ff6600;
+        }
+
+        #aboutpage {
+            background-color: #1a1a1a;
+            padding: 60px 20px;
+            text-align: left;
+        }
+
+        .about-container {
+            max-width: 950px;
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-start;
+            gap: 50px;
+        }
+
+        .about-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 5px solid #ff6600;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .about-text h2 {
+            font-size: 42px;
+            color: #ff6600;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            color: #cccccc;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #0d0d0d;
+            padding: 20px;
+        }
+
+        .socialmedialinks a {
+            color: #ff6600;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 24px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .socialmedialinks a:hover {
+            color: #ff9933;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin-top: 15px;
+            color: #b3b3b3;
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .about-text h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="holder" id="navigationbar">
+            <a href="index.html" id="logo">Rudra Palash Das</a>
+            <div class="linksofnavigationbar">
+                <a href="ABOUTPAGE.html" class="active">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="CONTACTME.html">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="aboutpage">
+            <div class="about-container">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczM4x6zAOIDvkTnnTzYXKZAViPQkROLTeE_KjM-r-YrluxK7wBsgg55JbE187p37q1bIUW5BQchXeondTqedDZdw22GE7xX2i6sIJJoLpV_eR70d8ehb7Zk0H4CFT5_vV45uFEkGGQlr11IlVcIAog7-=w677-h899-s-no-gm?authuser=0"
+                    alt="Rudra Palash Das" class="about-image"
+                    onerror="this.onerror=null;this.src='https://placehold.co/280x280/ff6600/ffffff?text=RPD';">
+                <div class="about-text">
+                    <h2>My Creative & Analytical Journey</h2>
+                    <p>
+                        Hello! I'm Rudra, 18 years old and exploring the world of data analytics while thriving as a
+                        professional graphic designer. As a beginner in analytics, I'm learning how to uncover insights
+                        from data. As a skilled designer, I know how to turn those insights into compelling visuals. I
+                        believe that data needs design to make an impact, and design needs purpose to truly resonate.
+                    </p>
+                    <p>
+                        My work blends curiosity with creativity. I'm learning to explore datasets and spot patterns
+                        that reveal meaningful insights. Once I find them, I use my graphic design skills to turn those
+                        insights into clean, intuitive visuals — whether it's a dashboard, a report, or a brand
+                        identity. I aim for clarity with every pixel and purpose behind every layout. Outside of work,
+                        my passion for cinema shapes how I tell stories, helping me frame problems visually and guide
+                        audiences toward clear, compelling conclusions.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="socialmedialinks">
+            <a href="https://www.instagram.com/ukwhoimright" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://letterboxd.com/rudrafx" target="_blank"><i class="fa-solid fa-film"></i></a>
+            <a href="https://github.com/rudrafx" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/rudrafx" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <p>Rudra Palash Das &copy; 2025 | All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+
+</html>

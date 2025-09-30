@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Gen Z Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f0f4f8;
+            --card-color: #ffffff;
+            --primary-color: #7f00ff;
+            --secondary-color: #00ffff;
+            --text-dark: #1c2833;
+            --text-light: #5a5a5a;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            font-weight: 800;
+            margin: 40px 0 30px;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(127, 0, 255, 0.5);
+        }
+
+        section {
+            background-color: var(--card-color);
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        h3 {
+            font-size: 1.25em;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .option-label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+            border: 2px solid var(--bg-color);
+            padding: 15px 20px;
+            border-radius: 12px;
+            background-color: #ffffff;
+            transition: all 0.2s ease;
+            position: relative;
+            font-weight: 400;
+            position: relative;
+        }
+
+        .option-label:hover {
+            border-color: var(--secondary-color);
+            background-color: #f7feff;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .option-text {
+            display: block;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .option-text::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--text-light);
+            background-color: var(--card-color);
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+
+        input[type="checkbox"]+.option-text::before {
+            border-radius: 4px;
+        }
+
+        input[type="radio"]:checked+.option-text,
+        input[type="checkbox"]:checked+.option-text {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        input[type="radio"]:checked+.option-text::before,
+        input[type="checkbox"]:checked+.option-text::before {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 8px rgba(127, 0, 255, 0.7);
+        }
+
+        input[type="radio"]:checked+.option-text::after {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        input[type="checkbox"]:checked+.option-text::after {
+            content: '✓';
+            position: absolute;
+            left: -23px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 14px;
+            line-height: 1;
+            z-index: 2;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            padding: 20px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.3em;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 8px 15px rgba(127, 0, 255, 0.4);
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.6);
+            transform: scale(1.02);
+        }
+
+        #result-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        #result-modal:target {
+            display: flex;
+        }
+
+        #result-box {
+            background: var(--card-color);
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            max-width: 90%;
+            animation: slideIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        #result-box h4 {
+            font-size: 2.2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        #result-box p {
+            font-size: 1.1em;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+        }
+
+        .close-btn {
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .close-btn:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5em;
+                margin-top: 30px;
+            }
+
+            section {
+                padding: 20px;
+                border-radius: 15px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .submit-btn {
+                padding: 15px;
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>The Ultimate Skill Check</h1>
+        <form action="#result-modal" id="quizForm">
+            <section>
+                <h2>Core Data Science</h2>
+                <div class="question">
+                    <h3>1. Which of the following is a supervised learning algorithm?</h3>
+                    <label class="option-label">
+                        <input type="radio" name="ds1" value="Linear Regression">
+                        <span class="option-text">Linear Regression</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="ds1" value="K-Means">
+                        <span class="option-text">K-Means</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="ds1" value="PCA">
+                        <span class="option-text">PCA</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="ds1" value="Apriori">
+                        <span class="option-text">Apriori</span>
+                    </label>
+                </div>
+                <div class="question">
+                    <h3>2. Which libraries are used for data manipulation in Python?</h3>
+                    <label class="option-label">
+                        <input type="checkbox" name="ds2[]" value="Pandas">
+                        <span class="option-text">Pandas</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="ds2[]" value="NumPy">
+                        <span class="option-text">NumPy</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="ds2[]" value="React">
+                        <span class="option-text">React</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="ds2[]" value="Seaborn">
+                        <span class="option-text">Seaborn</span>
+                    </label>
+                </div>
+                <div class="question">
+                    <h3>3. What does PCA stand for in machine learning?</h3>
+                    <label class="option-label">
+                        <input type="radio" name="ds3" value="Principal Component Analysis">
+                        <span class="option-text">Principal Component Analysis</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="ds3" value="Partial Curve Approximation">
+                        <span class="option-text">Partial Curve Approximation</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="ds3" value="Probability Component Adjustment">
+                        <span class="option-text">Probability Component Adjustment</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="ds3" value="Pattern Classification Algorithm">
+                        <span class="option-text">Pattern Classification Algorithm</span>
+                    </label>
+                </div>
+            </section>
+
+            <section>
+                <h2>Web Development</h2>
+                <div class="question">
+                    <h3>1. Which HTML tag is used to create a hyperlink?</h3>
+                    <label class="option-label">
+                        <input type="radio" name="wd1" value="<a>">
+                        <span class="option-text">&lt;a&gt;</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="wd1" value="<link>">
+                        <span class="option-text">&lt;link&gt;</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="wd1" value="<href>">
+                        <span class="option-text">&lt;href&gt;</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="wd1" value="<url>">
+                        <span class="option-text">&lt;url&gt;</span>
+                    </label>
+                </div>
+                <div class="question">
+                    <h3>2. Which of the following are CSS layout techniques?</h3>
+                    <label class="option-label">
+                        <input type="checkbox" name="wd2[]" value="Flexbox">
+                        <span class="option-text">Flexbox</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="wd2[]" value="Grid">
+                        <span class="option-text">Grid</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="wd2[]" value="SQL">
+                        <span class="option-text">SQL</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="wd2[]" value="Float">
+                        <span class="option-text">Float</span>
+                    </label>
+                </div>
+            </section>
+
+            <section>
+                <h2>Graphics Design</h2>
+                <div class="question">
+                    <h3>1. Which color model is primarily used for digital screens?</h3>
+                    <label class="option-label">
+                        <input type="radio" name="gd1" value="CMYK">
+                        <span class="option-text">CMYK</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="gd1" value="RGB">
+                        <span class="option-text">RGB</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="gd1" value="HEX">
+                        <span class="option-text">HEX</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="gd1" value="HSL">
+                        <span class="option-text">HSL</span>
+                    </label>
+                </div>
+                <div class="question">
+                    <h3>2. Which tools are widely used for UI/UX design?</h3>
+                    <label class="option-label">
+                        <input type="checkbox" name="gd2[]" value="Figma">
+                        <span class="option-text">Figma</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="gd2[]" value="Adobe XD">
+                        <span class="option-text">Adobe XD</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="gd2[]" value="Illustrator">
+                        <span class="option-text">Illustrator</span>
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" name="gd2[]" value="Excel">
+                        <span class="option-text">Excel</span>
+                    </label>
+                </div>
+            </section>
+
+            <button type="submit" class="submit-btn">Lock In Answers</button>
+        </form>
+    </div>
+
+    <div id="result-modal">
+        <div id="result-box">
+            <h4>Quiz Complete!</h4>
+            <p>Thanks for locking in your answers. We'll review your skills.<br>This is where your final score would be
+                calculated.</p>
+            <a href="#" class="close-btn">Close</a>
+        </div>
+    </div>
+</body>
+
+</html>

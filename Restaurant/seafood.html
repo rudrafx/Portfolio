@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marée Bleu - Coastal Dining & Goan Seafood</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f3ed;
+            color: #052c42;
+        }
+
+        .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .card-hover {
+            transition: all 0.4s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .gradient-accent {
+            background: linear-gradient(135deg, #00a896, #007566);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero {
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body class="text-gray-900">
+    <header class="bg-[#052c42] text-white shadow-xl sticky top-0 z-20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center p-4">
+            <div class="text-4xl font-serif font-bold tracking-wider text-[#00a896]">Marée Bleu ⚓</div>
+            <p class="text-sm italic opacity-80 mt-1 md:mt-0 font-light">Coastal Elegance, Authentic Flavour</p>
+        </div>
+        <nav class="bg-[#052c42] border-t border-[#00a896]/40 shadow-md">
+            <div class="max-w-7xl mx-auto flex justify-center flex-wrap text-lg">
+                <a href="#landing"
+                    class="py-3 px-6 hover:bg-[#064265] transition duration-200 font-semibold border-b-2 border-transparent hover:border-[#00a896]">Home</a>
+                <a href="menu.html"
+                    class="py-3 px-6 hover:bg-[#064265] transition duration-200 font-semibold border-b-2 border-transparent hover:border-[#00a896]">Menu</a>
+                <a href="reserve.html"
+                    class="py-3 px-6 hover:bg-[#064265] transition duration-200 font-semibold border-b-2 border-transparent hover:border-[#00a896]">Reserve</a>
+                <a href="about.html"
+                    class="py-3 px-6 hover:bg-[#064265] transition duration-200 font-semibold border-b-2 border-transparent hover:border-[#00a896]">Our
+                    Story</a>
+                <a href="contact.html"
+                    class="py-3 px-6 hover:bg-[#064265] transition duration-200 font-semibold border-b-2 border-transparent hover:border-[#00a896]">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="landing" class="hero relative h-[92vh] flex items-center justify-center bg-cover bg-center"
+            style="background-image: url('https://images.unsplash.com/photo-1517457375252-a5e227b61f8c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3');">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <div
+                class="relative text-center p-10 md:p-16 bg-[#f7f3ed] bg-opacity-95 rounded-xl shadow-2xl max-w-4xl mx-4 fade-in">
+                <h2 class="text-7xl md:text-8xl font-serif font-extrabold text-[#052c42] mb-6 tracking-tight">
+                    The Art of Goan Coastal Dining
+                </h2>
+                <p class="text-xl text-gray-700 leading-relaxed mb-10 font-light">
+                    Journey into Goa's finest seafood traditions, where authenticity meets elegance.
+                </p>
+                <a href="reserve.html"
+                    class="inline-block px-16 py-5 gradient-accent text-white font-bold rounded-full text-xl shadow-2xl hover:scale-105 transition duration-300 border-4 border-white">
+                    Book Your Experience
+                </a>
+            </div>
+        </section>
+
+        <div class="max-w-7xl mx-auto px-6">
+            <section class="py-20 text-center bg-[#ede8e0] rounded-2xl shadow-inner mt-16 fade-in">
+                <h2 class="text-5xl font-serif font-bold text-[#052c42] mb-14">Our Philosophy</h2>
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="p-10 bg-white rounded-xl shadow-lg border-b-4 border-[#00a896] card-hover">
+                        <span class="text-5xl text-[#00a896] mb-4 block">🌊</span>
+                        <h3 class="text-2xl font-serif font-semibold mb-2">Ocean-to-Table</h3>
+                        <p class="text-gray-600">The freshest catch from Goa’s fishing villages, perfected daily.</p>
+                    </div>
+                    <div class="p-10 bg-white rounded-xl shadow-lg border-b-4 border-[#00a896] card-hover">
+                        <span class="text-5xl text-[#00a896] mb-4 block">📜</span>
+                        <h3 class="text-2xl font-serif font-semibold mb-2">Heritage Recipes</h3>
+                        <p class="text-gray-600">Passed down for generations, each dish tells a story of Goa.</p>
+                    </div>
+                    <div class="p-10 bg-white rounded-xl shadow-lg border-b-4 border-[#00a896] card-hover">
+                        <span class="text-5xl text-[#00a896] mb-4 block">🥂</span>
+                        <h3 class="text-2xl font-serif font-semibold mb-2">Refined Service</h3>
+                        <p class="text-gray-600">Hospitality that blends warmth with modern sophistication.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-16 bg-[#052c42] text-white rounded-xl shadow-2xl my-20 text-center fade-in">
+                <h2 class="text-5xl font-serif font-bold text-[#00a896] mb-6">Discover Our Full Offering</h2>
+                <p class="text-lg max-w-3xl mx-auto text-gray-300 mb-10">
+                    From fiery xacuti curries to delicate seafood grills, indulge in our signature creations.
+                </p>
+                <a href="menu.html"
+                    class="inline-block px-12 py-4 gradient-accent text-white font-semibold rounded-full text-xl shadow-xl hover:scale-105 transition duration-300">
+                    View Complete Menu
+                </a>
+            </section>
+
+            <section class="py-16 text-center mb-20 border-t-2 border-b-2 border-[#052c42]/20 fade-in">
+                <h2 class="text-5xl font-serif font-bold text-[#052c42] mb-6">Plan Your Visit</h2>
+                <p class="text-lg max-w-3xl mx-auto text-gray-600 mb-10">
+                    Reserve your table for an unforgettable coastal dining journey.
+                </p>
+                <a href="reserve.html"
+                    class="inline-block px-14 py-5 bg-[#052c42] text-white font-bold rounded-full text-lg shadow-xl hover:bg-[#064265] hover:scale-105 transition duration-300">
+                    Book Now
+                </a>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-[#052c42] text-white p-14 mt-10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div>
+                <h3 class="text-3xl font-serif font-bold text-[#00a896] mb-4">Marée Bleu</h3>
+                <p class="text-sm opacity-80">
+                    Since 1998. Celebrating Goa’s coastal heritage with flavor and elegance.
+                </p>
+                <a href="#landing" class="inline-block mt-4 text-[#00a896] text-sm hover:text-white transition">
+                    ↑ Back to Top
+                </a>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold mb-4 border-b border-[#064265] pb-2">Connect</h4>
+                <p>📍 <strong>Address:</strong> Baga Beach Road, Goa 403516</p>
+                <p>📞 <strong>Phone:</strong> <a href="tel:+919876543210" class="hover:text-[#00a896]">+91 98765
+                        43210</a></p>
+                <p>✉️ <strong>Email:</strong> <a href="mailto:info@mareebleu.com"
+                        class="hover:text-[#00a896]">info@mareebleu.com</a></p>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold mb-4 border-b border-[#064265] pb-2">Navigation</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="menu.html" class="hover:text-[#00a896]">View Menu</a></li>
+                    <li><a href="reserve.html" class="hover:text-[#00a896]">Reservations</a></li>
+                    <li><a href="about.html" class="hover:text-[#00a896]">Our Heritage</a></li>
+                    <li><a href="contact.html" class="hover:text-[#00a896]">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold mb-4 border-b border-[#064265] pb-2">Location</h4>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15092.179313936643!2d72.81223944208756!3d18.95152204128038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7d1e0f0a26a81%3A0x87d6e47e053c1512!2sMarine%20Drive!5e0!3m2!1sen!2sin!4v1727432075123!5m2!1sen!2sin"
+                    class="w-full h-40 rounded-lg opacity-95 border-2 border-[#00a896]">
+                </iframe>
+            </div>
+        </div>
+        <div class="text-center border-t border-[#064265] pt-6 mt-8">
+            <p class="text-xs opacity-70">© 2025 Marée Bleu. All rights reserved. | Coastal Designs.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

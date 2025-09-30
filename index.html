@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rudra Palash Das - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body {
+            font-family: "Questrial", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d0d0d;
+            color: #f2f2f2;
+            text-align: center;
+        }
+
+        header {
+            background-color: #ff6600;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        #navigationbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        #logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .linksofnavigationbar a {
+            margin: 0 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 80px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .linksofnavigationbar a:hover,
+        .linksofnavigationbar a.active {
+            background-color: #ffffff;
+            color: #ff6600;
+        }
+
+        .hero-section {
+            background-color: #1a1a1a;
+            padding: 80px 20px;
+        }
+
+        .pfp {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 10px;
+            border: 4px solid #ff6600;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .hero-section h1 {
+            font-weight: bold;
+            color: #f2f2f2;
+            margin-bottom: 20px;
+            font-size: 40px;
+        }
+
+        .hero-section h2 {
+            font-weight: bold;
+            color: #ff9933;
+            font-size: 28px;
+            margin-bottom: 30px;
+            background-color: #0d0d0d;
+            padding: 15px 50px;
+            border-radius: 80px;
+            max-width: 430px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 2px solid transparent;
+        }
+
+        .hero-section p {
+            font-size: 17px;
+            max-width: 700px;
+            margin: auto;
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .preview-section {
+            padding: 60px 20px;
+        }
+
+        .preview-section.dark {
+            background-color: #121212;
+        }
+
+        .preview-section.light {
+            background-color: #1a1a1a;
+        }
+
+        .preview-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .preview-section h3 {
+            font-size: 36px;
+            color: #ff6600;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .preview-section>.preview-container>p {
+            font-size: 18px;
+            color: #cccccc;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #ff6600;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background-color: #ff9933;
+            transform: scale(1.05);
+        }
+
+        .skills-preview-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .skill-preview-item {
+            background: #0d0d0d;
+            padding: 30px;
+            border-radius: 18px;
+            width: 250px;
+        }
+
+        .skill-preview-item i {
+            font-size: 40px;
+            color: #ff9933;
+            margin-bottom: 15px;
+        }
+
+        .skill-preview-item h4 {
+            font-size: 22px;
+            margin: 0;
+        }
+
+        .projects-preview-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .projectspace {
+            background-color: #1e1e1e;
+            border-radius: 18px;
+            text-align: left;
+            text-decoration: none;
+            color: #ffffff;
+            box-sizing: border-box;
+            width: 320px;
+            transition: all 0.3s ease-in-out;
+            padding: 15px;
+        }
+
+        .projectspace:hover {
+            transform: translateY(-5px);
+            background-color: #2a2a2a;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .projectspace img {
+            width: 100%;
+            height: 150px;
+            border-radius: 18px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .projectsinfo h3 {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px 0 8px 0;
+        }
+
+        .projectsinfo p {
+            font-size: 14px;
+        }
+
+        footer {
+            background-color: #0d0d0d;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .socialmedialinks a {
+            color: #ff6600;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 24px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .socialmedialinks a:hover {
+            color: #ff9933;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin-top: 15px;
+            color: #b3b3b3;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="holder" id="navigationbar">
+            <a href="index.html" id="logo">Rudra Palash Das</a>
+            <div class="linksofnavigationbar">
+                <a href="ABOUTPAGE.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="CONTACTME.html">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div id="importantcontainer">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczM4x6zAOIDvkTnnTzYXKZAViPQkROLTeE_KjM-r-YrluxK7wBsgg55JbE187p37q1bIUW5BQchXeondTqedDZdw22GE7xX2i6sIJJoLpV_eR70d8ehb7Zk0H4CFT5_vV45uFEkGGQlr11IlVcIAog7-=w677-h899-s-no-gm?authuser=0"
+                    alt="pfp" class="pfp"
+                    onerror="this.onerror=null;this.src='https://placehold.co/200x200/ff6600/ffffff?text=RPD';">
+                <div>
+                    <h1>Rudra Palash Das</h1>
+                    <h2>Data Analyst & Graphics Designer</h2>
+                    <p>I transform complex data into compelling stories and design clean,
+                        user-friendly visuals. I love exploring the intersection of analytics and creativity, and I
+                        enjoy watching films that inspire new perspectives.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="preview-section dark">
+            <div class="preview-container">
+                <h3>About Me</h3>
+                <p>I'm an 18-year-old creative professional blending my growing passion for data analytics with
+                    established skills in graphic design. I aim to create work that is not only visually beautiful but
+                    also data-driven and purposeful.</p>
+                <a href="ABOUTPAGE.html" class="cta-button">Learn More About Me</a>
+            </div>
+        </section>
+
+        <section class="preview-section light">
+            <div class="preview-container">
+                <h3>My Core Skills</h3>
+                <p>I focus on a combination of technical and creative skills to deliver well-rounded results.</p>
+                <div class="skills-preview-grid">
+                    <div class="skill-preview-item">
+                        <i class="fa-solid fa-chart-simple"></i>
+                        <h4>Data Analytics</h4>
+                    </div>
+                    <div class="skill-preview-item">
+                        <i class="fa-solid fa-palette"></i>
+                        <h4>Graphic Design</h4>
+                    </div>
+                    <div class="skill-preview-item">
+                        <i class="fa-solid fa-code"></i>
+                        <h4>Web Development</h4>
+                    </div>
+                </div>
+                <a href="skills.html" class="cta-button">See My Full Skillset</a>
+            </div>
+        </section>
+
+        <section class="preview-section dark">
+            <div class="preview-container">
+                <h3>Featured Project</h3>
+                <p>Here is a recent project that showcases my ability to merge design and functionality. Curious to see
+                    more?</p>
+
+                <div class="projects-preview-grid">
+                    <a href="Maree Bleu/seafood.html" target="_blank" class="projectspace">
+                        <img src="https://placehold.co/600x300/1e1e1e/ff6600?text=Marée+Bleu" alt="Marée Bleu Project">
+                        <div class="projectsinfo">
+                            <h3>Marée Bleu: Goan Seafood Restaurant </h3>
+                            <p>A conceptual website for a Goan seafood restaurant, showcasing a unique blend of coastal
+                                flavors.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <a href="projects.html" class="cta-button">View All My Projects</a>
+            </div>
+        </section>
+
+        <section class="preview-section light">
+            <div class="preview-container">
+                <h3>Let's Work Together</h3>
+                <p>Have a project in mind? I'm always open to discussing new ideas and opportunities.</p>
+                <a href="CONTACTME.html" class="cta-button">Get In Touch</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="socialmedialinks">
+            <a href="https://www.instagram.com/ukwhoimright" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://letterboxd.com/rudrafx" target="_blank"><i class="fa-solid fa-film"></i></a>
+            <a href="https://github.com/rudrafx" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/rudrafx" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <p>Rudra Palash Das &copy; 2025 | All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+
+</html>

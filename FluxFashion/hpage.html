@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FluxFashion - GenZ Trend Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-dark: #1a1a1a;
+            --accent-orange: #FF5722;
+            --light-bg: #f5f5f5;
+            --text-color: #333333;
+            --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            background: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--primary-dark);
+            color: white;
+            padding: 15px 5vw;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .icon {
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--accent-orange);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-orange);
+            border-bottom: 2px solid var(--accent-orange);
+            padding-bottom: 5px;
+        }
+
+        .page {
+            background: url("https://images.pexels.com/photos/250290/pexels-photo-250290.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") no-repeat center center/cover;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .page::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.65);
+        }
+
+        .page-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+            max-width: 800px;
+        }
+
+        .page-content h1 {
+            font-size: clamp(36px, 6vw, 68px);
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+
+        .page-content p {
+            font-size: clamp(18px, 2vw, 24px);
+            font-weight: 400;
+            margin-bottom: 40px;
+            color: #ccc;
+        }
+
+        .page-content button {
+            background: var(--accent-orange);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .page-content button:hover {
+            background: #e64a19;
+            box-shadow: 0 8px 20px rgba(255, 87, 34, 0.6);
+            transform: translateY(-2px);
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 80px auto;
+            text-align: center;
+            padding: 0 5vw;
+        }
+
+        section h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 3px solid var(--accent-orange);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .tagline2 {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tagline2 a {
+            color: var(--accent-orange);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .tagline2 a:hover {
+            color: var(--primary-dark);
+        }
+
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .social-icons {
+            margin: 15px 0;
+        }
+
+        .social-icons a {
+            margin: 0 15px;
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-orange);
+            transform: scale(1.1);
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: #A0A0A0;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+
+            .page-content h1 {
+                font-size: 48px;
+            }
+
+            section {
+                margin: 50px auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="icon">FluxFashion</div>
+        <nav>
+            <a href="hpage.html">Home</a>
+            <a href="ppage.html">Products</a>
+            <a href="apage.html">About</a>
+            <a href="cpage.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="page">
+        <div class="page-content">
+            <h1>FluxFashion: Your GenZ Trend Hub</h1>
+            <p id="tagline1">Bold styles, fresh vibes, and fashion made for YOU.</p>
+            <button onclick="window.location.href='ppage.html'">Shop Now</button>
+        </div>
+    </section>
+
+    <section>
+        <h2>Welcome to FluxFashion</h2>
+        <p class="tagline2">
+            We bring you trendy, stylish, and unique outfits that reflect the true GenZ lifestyle.
+            Whether its chic streetwear, classy formals, or casual fits, FluxFashion has it all.
+            Explore our <a href="ppage.html">Products</a> and stay fashion-forward.
+        </p>
+    </section>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="copyright">
+            © 2025 FluxFashion. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+
+</html>

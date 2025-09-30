@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marée Bleu - Full Culinary Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f3ed;
+            color: #052c42;
+        }
+
+        .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .card-hover {
+            transition: all 0.4s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+
+<body class="text-gray-900">
+
+    <header class="bg-[#052c42] text-white shadow-xl sticky top-0 z-20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center p-4">
+            <div class="text-4xl font-serif font-bold tracking-wider text-[#00a896]">Marée Bleu ⚓</div>
+            <p class="text-sm italic opacity-80 mt-1 md:mt-0 font-light">Coastal Elegance, Authentic Flavour</p>
+        </div>
+        <nav class="bg-[#052c42] border-t border-[#00a896] shadow-md">
+            <div class="max-w-7xl mx-auto flex justify-center flex-wrap text-lg">
+                <a href="seafood.html"
+                    class="py-3 px-6 hover:bg-[#064265] transition duration-200 font-semibold border-b-2 border-transparent hover:border-[#00a896]">Home</a>
+                <a href="#full-menu"
+                    class="py-3 px-6 bg-[#064265] transition duration-200 font-semibold border-b-2 border-[#00a896]">Menu</a>
+                <a href="reserve.html"
+                    class="py-3 px-6 hover:bg-[#064265] transition duration-200 font-semibold border-b-2 border-transparent hover:border-[#00a896]">Reserve</a>
+                <a href="about.html"
+                    class="py-3 px-6 hover:bg-[#064265] transition duration-200 font-semibold border-b-2 border-transparent hover:border-[#00a896]">Our
+                    Story</a>
+                <a href="contact.html"
+                    class="py-3 px-6 hover:bg-[#064265] transition duration-200 font-semibold border-b-2 border-transparent hover:border-[#00a896]">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+        <section id="full-menu"
+            class="text-center mb-16 p-10 bg-white rounded-xl shadow-xl border-t-4 border-[#052c42]">
+            <p class="text-xl text-[#00a896] font-semibold mb-2 font-serif">A Feast of Coastal Delights</p>
+            <h1 class="text-6xl font-serif font-extrabold text-[#052c42] mb-4 tracking-tight">
+                Our Extensive Culinary Menu
+            </h1>
+            <p class="text-lg max-w-4xl mx-auto text-gray-700">
+                Experience the depth of Goan seafood with over 60 meticulously crafted dishes from the freshest seasonal
+                ingredients.
+            </p>
+        </section>
+
+        <div class="space-y-16">
+
+            <section>
+                <h2 class="text-5xl font-serif font-bold text-[#052c42] mb-8 border-b-2 border-[#00a896] pb-2">🐟
+                    Coastal Fish Classics</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Pomfret Recheado
+                                (Whole)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Whole pomfret stuffed with our signature fiery Goan
+                            Recheado masala, shallow-fried.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹950</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Kingfish Green Masala
+                                Fry</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Kingfish steaks marinated in a vibrant coriander,
+                            green chili, and ginger paste, grilled.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹850</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Goan Shark Ambot
+                                Tik</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Tender shark meat simmered in a hot, sour, and spicy
+                            traditional Goan curry.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹780</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Red Snapper
+                                Cafreal</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Fillet roasted with a zesty, coriander and
+                            spice-heavy green Cafreal marinade.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹980</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Rawas Tawa Fry (Indian
+                                Salmon)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Thick Rawas fillets pan-seared on a tawa with custom
+                            coastal spices and lime.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1100</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Basa Fillet in Malvani
+                                Curry</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Delicate Basa in a rich, dark Malvani style
+                            coconut-based gravy, intensely flavourful.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹790</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Mandeli (Golden Anchovy)
+                                Crispy Fry</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Tiny fish marinated, coated in semolina (rava), and
+                            deep-fried until exceptionally crisp.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹650</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Mackerel Masala Rawa
+                                Fry</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Mackerel marinated in turmeric and chili, coated in
+                            rava, pan-fried to golden-brown.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹680</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Pomfret Xacuti</strong>
+                        </h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Pomfret pieces cooked in a rich, complex roasted
+                            coconut and spice Xacuti curry.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1050</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Red Snapper Curry (Classic
+                                Goan)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Snapper pieces simmered in our classic sour and spicy
+                            Goan coconut curry base.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹990</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Ravas Tikka Skewers
+                                (Tandoor)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Chunks of Ravas (Indian Salmon) marinated in hung
+                            curd and tandoori spices, charcoal-grilled.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1200</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Sole Fillet in Lemon Butter
+                                Sauce</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Pan-seared sole fillet served with capers, white
+                            wine, and a delicate lemon butter sauce.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1350</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Calico Scallop
+                                Pan-Seared</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Served with creamy saffron risotto and finished with
+                            a touch of truffle oil.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1450</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Baked Cod with Garlic &
+                                Herb Crust</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Oven-baked cod fillet topped with fresh parsley,
+                            breadcrumbs, and roasted garlic.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1280</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Sea Bass Ceviche</strong>
+                        </h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Thinly sliced sea bass cured instantly in lime juice,
+                            served with red onion, and cilantro.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1150</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Tuna Peri-Peri
+                                Steak</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Seared tuna steak coated in a fiery Portuguese-Goan
+                            Peri-Peri marinade, medium-rare.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1300</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Fish Thali (Chef's Daily
+                                Selection)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Includes rice, Goan fish curry, vegetable, kismur,
+                            and fried fish of the day (Lunch Only).</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹750</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Pomfret Curry (Vindaloo
+                                Style)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Pomfret in a tangy, robust gravy featuring vinegar,
+                            garlic, and dry red chilies—a strong flavor profile.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1020</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Ladyfish Rawa Fry</strong>
+                        </h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Small, delicate ladyfish fried crisp with semolina
+                            coating, often served as an appetizer.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹720</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Grilled Bhetki
+                                (Barramundi)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Bhetki fillet marinated in simple herbs,
+                            charcoal-grilled to achieve a smoky flavour and tender texture.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1180</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-5xl font-serif font-bold text-[#052c42] mb-8 border-b-2 border-[#00a896] pb-2">🍤 Prawns
+                    & Shellfish Delicacies</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Jumbo Prawn Xacuti</strong>
+                        </h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Large prawns tossed in a thick, complex gravy of
+                            roasted coconut, spices, and dried red chillies.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹880</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Butter Garlic Tiger
+                                Prawns</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Sautéed in clarified butter, fragrant garlic, fresh
+                            parsley, and a hint of white wine.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹950</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Prawn Balchão</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Famous tangy and spicy pickle-style preparation, best
+                            enjoyed with traditional Goan bread (Poee).</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹790</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Prawns in Green Curry
+                                (Koliwada Style)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Prawns cooked in a vibrant green curry paste
+                            (coriander, mint, coconut), fresh and aromatic.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹820</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Crispy Golden Fried
+                                Prawns</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Prawns coated in a light batter and deep-fried,
+                            served with sweet chili dipping sauce.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹850</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Prawn Biryani (Goan
+                                Style)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Basmati rice cooked with perfectly marinated prawns,
+                            cashew nuts, and whole spices.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹990</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Tandoori Masala Prawns
+                                (Jumbo)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Large prawns marinated in yogurt and intense tandoori
+                            spices, baked in our clay oven.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1250</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Prawns in Oyster Sauce
+                                Stir-fry</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Chinese-inspired stir-fry with peppers, onions, and a
+                            rich, savory oyster sauce.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹890</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Prawn Xec Xec
+                                (Semi-Dry)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Semi-dry curry with coconut and ground whole spices,
+                            providing a robust flavour.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹860</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Prawns Goan Curry
+                                (Mild)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">A creamy, mildly spiced coconut milk-based curry,
+                            perfect for those preferring less heat.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹810</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Prawn Tikka
+                                Skewers</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Medium-sized prawns marinated in fresh lime, ginger,
+                            and subtle spices, grilled on skewers.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹920</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Prawn Masala Fry</strong>
+                        </h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Prawns quickly sautéed with onions, tomatoes, and a
+                            dry, tangy masala blend.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹750</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Spicy Prawn
+                                Tempura</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Lightly battered and fried prawns, served with a
+                            soy-ginger and chili dipping sauce.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1050</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Garlic Butter
+                                Clams</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Fresh clams sautéed with butter, garlic, herbs, and
+                            lemon juice until tender.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹720</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Mussel Rawa Fry
+                                (Tisryo)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Fresh mussels coated in semolina and local spices,
+                            shallow-fried and served with lemon.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹780</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-5xl font-serif font-bold text-[#052c42] mb-8 border-b-2 border-[#00a896] pb-2">🦀 Crab &
+                    Lobster</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Signature Crab Xec
+                                Xec</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Fresh mud crabs cooked in a rich, thick, and
+                            perfectly balanced Xec Xec gravy. **(Seasonal)**</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1250</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Goan Spiced Lobster
+                                (Grilled)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Lobster tail basted with a mild Goan spice-butter,
+                            served with seasonal vegetables.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">Market Price</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Crab Masala Roast</strong>
+                        </h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Dry preparation of crab meat slow-roasted in spicy
+                            Goan red masala until tender and fragrant.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1350</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Chilli Garlic Crab (Mumbai
+                                Style)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Crab cooked in a thick, fiery red chilli and garlic
+                            sauce, perfect for dipping.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1400</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Crab Curry (Simple Coconut
+                                Base)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Crab cooked in a simple, creamy, mildly spiced
+                            coconut curry, highlighting the crab's flavour.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1150</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Pepper Garlic
+                                Lobster</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Whole lobster sautéed with crushed black pepper,
+                            fresh garlic, and melted butter.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">Market Price</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Lobster Thermidor
+                                (French-Goan Fusion)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Creamy cheese and mushroom sauce stuffed in the
+                            lobster shell, then baked.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">Market Price</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Tandoori Lobster</strong>
+                        </h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Whole lobster marinated in intense Tandoori spices
+                            and baked until smoky and succulent.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">Market Price</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Crab Meat Fried
+                                Rice</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Classic wok-tossed fried rice enriched with delicate,
+                            freshly shredded crab meat.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹980</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Lobster Bisque (Small
+                                Bowl)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">A small, refined bowl of creamy, rich soup made from
+                            concentrated lobster stock and brandy.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹650</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Crab Cakes with
+                                Rémoulade</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Pan-fried crab cakes served with a tangy, spiced
+                            Rémoulade dipping sauce.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1050</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Half Shell Scallops
+                                Gratin</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Scallops baked in their shells with a parmesan cheese
+                            topping and light herb butter.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1480</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Lobster Ravioli (Saffron
+                                Cream)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Homemade pasta stuffed with fresh lobster meat,
+                            served in a delicate saffron cream sauce.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1600</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Steamed Crab with Lemon and
+                                Ginger</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Classic preparation to highlight the natural
+                            sweetness of the crab meat. **(Seasonal)**</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1200</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Oyster Platter (Half
+                                Dozen)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Fresh Oysters served raw with traditional mignonette,
+                            fresh lime wedges, and hot sauce.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹1800</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-5xl font-serif font-bold text-[#052c42] mb-8 border-b-2 border-[#00a896] pb-2">🦑
+                    Calamari & Octopus</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Spicy Calamari Dry
+                                Fry</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Tender squid rings quickly tossed in a dry, zesty
+                            masala—a perfect appetizer with a kick.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹650</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Octopus Peri-Peri
+                                Skewers</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Tenderized octopus marinated in authentic
+                            Portuguese-Goan Peri-Peri sauce and grilled over charcoal.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹700</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Calamari Xacuti</strong>
+                        </h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Squid rings cooked in the signature complex Xacuti
+                            gravy—rich, dark, and highly aromatic.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹720</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Crispy Calamari Rings
+                                (Appetizer)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Lightly dusted and fried, served with spicy
+                            mayonnaise and a lemon wedge.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹680</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Calamari Butter
+                                Garlic</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Squid rings sautéed in light butter and garlic, a
+                            simple yet intensely flavorful preparation.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹750</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Octopus Masala Fry</strong>
+                        </h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Octopus braised until tender and then fried in a dry
+                            onion-tomato masala.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹850</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Squid Masala Curry</strong>
+                        </h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Squid rings simmered in a rich, semi-dry Goan curry
+                            base with a hint of kokum.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹780</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Calamari Recheado</strong>
+                        </h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Squid rings pan-fried with the fiery Recheado
+                            paste—tangy, spicy, and aromatic.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹790</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Grilled Octopus
+                                Tentacles</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Tender tentacles served with olive oil, paprika, and
+                            a side of balsamic glaze.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹950</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Squid and Prawn
+                                Noodles</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Wok-tossed noodles with fresh squid, prawns, and
+                            savory Asian sauces.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹820</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Octopus Salad
+                                (Mediterranean)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Chilled octopus chunks tossed with capers, olives,
+                            celery, and citrus vinaigrette.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹990</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Calamari in Black Bean
+                                Sauce</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Stir-fried squid with bell peppers, onions, and a
+                            deeply savory black bean sauce.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹760</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Stuffed Squid (Bhaji
+                                Style)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Squid tubes stuffed with a spiced mixture of fish or
+                            prawns, baked and sliced.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹920</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Octopus in Vindaloo
+                                Sauce</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Octopus cooked until meltingly tender in a sharp,
+                            tangy, and highly spiced Vindaloo sauce.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹880</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00a896] card-hover">
+                        <h3 class="text-2xl font-serif font-semibold text-[#052c42]"><strong>Calamari Fry (Lemon and
+                                Pepper)</strong></h3>
+                        <p class="text-gray-600 text-sm mt-1 mb-3">Lightly fried squid seasoned simply with freshly
+                            ground pepper and lemon zest.</p>
+                        <p class="text-[#00a896] font-extrabold text-lg">₹690</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <footer class="bg-[#052c42] text-white p-14 mt-10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div>
+                <h3 class="text-3xl font-serif font-bold text-[#00a896] mb-4">Marée Bleu</h3>
+                <p class="text-sm opacity-80 font-light">
+                    Since 1998. Dedicated to sourcing, tradition, and service. Located on the beautiful Baga Coast.
+                </p>
+                <a href="#full-menu"
+                    class="inline-block mt-4 text-[#00a896] text-sm hover:text-white transition duration-200">
+                    ↑ Back to Top
+                </a>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-semibold mb-4 border-b border-[#064265] pb-2">Connect</h4>
+                <p>📍 <strong>Address:</strong> Baga Beach Road, Goa 403516</p>
+                <p>📞 <strong>Phone:</strong> <a href="tel:+919876543210"
+                        class="hover:text-[#00a896] transition duration-200">+91 98765 43210</a></p>
+                <p>✉️ <strong>Email:</strong> <a href="mailto:info@mareebleu.com"
+                        class="hover:text-[#00a896] transition duration-200">info@mareebleu.com</a></p>
+            </div>
+
+            <div>
+                <h4 class="text-xl font-semibold mb-4 border-b border-[#064265] pb-2">Navigation</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="menu.html" class="hover:text-[#00a896] transition duration-200">View Menu</a></li>
+                    <li><a href="reserve.html" class="hover:text-[#00a896] transition duration-200">Reservations</a>
+                    </li>
+                    <li><a href="about.html" class="hover:text-[#00a896] transition duration-200">Our Heritage</a></li>
+                    <li><a href="contact.html" class="hover:text-[#00a896] transition duration-200">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-1">
+                <h4 class="text-xl font-semibold mb-4 border-b border-[#064265] pb-2">Location</h4>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15092.179313936643!2d72.81223944208756!3d18.95152204128038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7d1e0f0a26a81%3A0x87d6e47e053c1512!2sMarine%20Drive!5e0!3m2!1sen!2sin!4v1727432075123!5m2!1sen!2sin"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    class="w-full h-40 rounded-lg opacity-90 border-2 border-[#00a896]">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="text-center border-t border-[#064265] pt-6 mt-6">
+            <p class="text-xs opacity-70">© 2025 Marée Bleu. All rights reserved. | Site by Coastal Designs.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

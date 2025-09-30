@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Rudra Palash Das</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body {
+            font-family: "Questrial", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d0d0d;
+            color: #f2f2f2;
+            text-align: center;
+        }
+
+        header {
+            background-color: #ff6600;
+            padding: 20px;
+        }
+
+        #navigationbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        #logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .linksofnavigationbar a {
+            margin: 0 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 80px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .linksofnavigationbar a:hover,
+        .linksofnavigationbar a.active {
+            background-color: #ffffff;
+            color: #ff6600;
+        }
+
+        #skills-page {
+            padding: 60px 20px;
+            background-color: #121212;
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-container h2 {
+            font-size: 42px;
+            color: #ff6600;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .skills-container>p {
+            font-size: 18px;
+            color: #cccccc;
+            line-height: 1.7;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .skills-main-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .skill-card {
+            background-color: #1a1a1a;
+            border-radius: 18px;
+            padding: 30px;
+            border: 1px solid #2a2a2a;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff6600;
+        }
+
+        .skill-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .skill-card-header i {
+            font-size: 36px;
+            color: #ff9933;
+            margin-right: 20px;
+            width: 40px;
+        }
+
+        .skill-card-header h3 {
+            font-size: 24px;
+            color: #f2f2f2;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .skill-card p {
+            font-size: 16px;
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .skills-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list li {
+            background-color: #0d0d0d;
+            color: #cccccc;
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        footer {
+            background-color: #0d0d0d;
+            padding: 20px;
+        }
+
+        .socialmedialinks a {
+            color: #ff6600;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 24px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .socialmedialinks a:hover {
+            color: #ff9933;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin-top: 15px;
+            color: #b3b3b3;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="holder" id="navigationbar">
+            <a href="index.html" id="logo">Rudra Palash Das</a>
+            <div class="linksofnavigationbar">
+                <a href="ABOUTPAGE.html">About</a>
+                <a href="skills.html" class="active">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="CONTACTME.html">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="skills-page">
+            <div class="skills-container">
+                <h2>Technical & Creative Skills</h2>
+                <p>I thrive on combining analytical rigor with creative design to build meaningful experiences. Here's a
+                    breakdown of the tools and methodologies I use to bring ideas to life.</p>
+                <div class="skills-main-grid">
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <i class="fa-solid fa-chart-simple"></i>
+                            <h3>Data Analytics</h3>
+                        </div>
+                        <p>I specialize in transforming raw data into actionable insights through visualization and
+                            statistical analysis.</p>
+                        <div class="skills-list">
+                            <ul>
+                                <li>Data Visualization (Tableau, Power BI)</li>
+                                <li>SQL for Data Extraction & Manipulation</li>
+                                <li>Python (Pandas, NumPy, Matplotlib)</li>
+                                <li>Statistical Analysis & A/B Testing</li>
+                                <li>Dashboard Creation & Reporting</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <i class="fa-solid fa-palette"></i>
+                            <h3>Graphic Design</h3>
+                        </div>
+                        <p>My design philosophy is centered on user-centric principles to create intuitive and visually
+                            appealing interfaces.</p>
+                        <div class="skills-list">
+                            <ul>
+                                <li>UI/UX Principles & Wireframing</li>
+                                <li>Adobe Creative Suite (Photoshop, Illustrator)</li>
+                                <li>Figma for Prototyping</li>
+                                <li>Branding & Identity Design</li>
+                                <li>Visual Storytelling</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <i class="fa-solid fa-code"></i>
+                            <h3>Web Development</h3>
+                        </div>
+                        <p>I build responsive and functional websites, ensuring a seamless experience across all
+                            devices.</p>
+                        <div class="skills-list">
+                            <ul>
+                                <li>HTML5 & CSS3</li>
+                                <li>JavaScript (ES6+)</li>
+                                <li>Responsive Design & Flexbox/Grid</li>
+                                <li>Version Control (Git & GitHub)</li>
+                                <li>Web Performance Optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="socialmedialinks">
+            <a href="https://www.instagram.com/ukwhoimright" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://letterboxd.com/rudrafx" target="_blank"><i class="fa-solid fa-film"></i></a>
+            <a href="https://github.com/rudrafx" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/rudrafx" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <p>Rudra Palash Das &copy; 2025 | All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+
+</html>
